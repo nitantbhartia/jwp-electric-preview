@@ -1,0 +1,186 @@
+/* JWP Electric — license-and-van. Giant #951604 + cell. Not a panel-upgrade landing. */
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700;800&display=swap");
+
+:root {
+  --van: #eceff2;
+  --vinyl: #121417;
+  --cell: #9b1c1c;
+  --gold: #c4a035;
+  --stripe: #d9b11a;
+  --steel: #6d7580;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  min-height: 100vh;
+  background: #3d444c;
+  color: var(--vinyl);
+  font-family: "Barlow", "Arial Narrow", sans-serif;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.45rem 0.8rem;
+  background: #0e1014;
+  color: #eceff2;
+}
+.lang button {
+  background: transparent; color: #eceff2; border: 1px solid #eceff255;
+  padding: 0.15rem 0.45rem; cursor: pointer;
+}
+.lang button[aria-pressed="true"] { background: var(--stripe); color: #121417; border-color: var(--stripe); }
+
+.van {
+  max-width: 920px;
+  margin: 1.2rem auto 2.5rem;
+  background:
+    linear-gradient(#0000 0 12px, #dfe4ea 12px 14px, #0000 14px),
+    linear-gradient(180deg, #f7f8fa, var(--van) 18%, #d5dbe3);
+  border: 10px solid #2a2e34;
+  border-radius: 8px 8px 4px 4px;
+  box-shadow: 0 28px 0 #1a1d22, 0 40px 50px #0008;
+  padding: 1.1rem 1.3rem 1.4rem;
+  position: relative;
+}
+.van::before {
+  content: "";
+  position: absolute;
+  left: -18px; right: -18px; bottom: -22px; height: 18px;
+  background: #1a1d22;
+  border-radius: 2px;
+}
+.handle {
+  width: 70px; height: 14px; background: var(--steel); border-radius: 2px;
+  margin: 0 0 0.8rem auto;
+  box-shadow: inset 0 1px 0 #fff6;
+}
+
+.lettering {
+  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 0.9;
+}
+.lettering .co { font-size: clamp(2.4rem, 9vw, 5.2rem); display: block; }
+.lettering .tag {
+  display: block;
+  font-size: clamp(1rem, 3.2vw, 1.7rem);
+  font-weight: 700;
+  color: #3a4048;
+  margin-top: 0.25rem;
+}
+
+.license {
+  margin: 0.7rem 0 0.2rem;
+  border: 4px solid var(--vinyl);
+  background: #fff;
+  padding: 0.35rem 0.5rem 0.5rem;
+  text-align: center;
+}
+.license small {
+  display: block;
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: #3a4048;
+}
+.license .num {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: clamp(3.8rem, 16vw, 8.4rem);
+  line-height: 0.85;
+  letter-spacing: 0.02em;
+}
+.license .bond {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #3a4048;
+}
+
+.cell {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.2rem, 9vw, 4.6rem);
+  line-height: 0.9;
+  color: var(--cell);
+  text-decoration: none;
+  display: inline-block;
+  margin: 0.35rem 0 0.8rem;
+  letter-spacing: 0.03em;
+}
+
+.stripe {
+  background: var(--stripe);
+  color: var(--vinyl);
+  padding: 0.45rem 0.6rem;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.1rem;
+}
+.stripe span { white-space: nowrap; }
+
+.copy { margin: 0.9rem 0; max-width: 62ch; }
+.copy p { margin: 0 0 0.55rem; }
+
+.hours-sticker {
+  display: inline-block;
+  background: #fff;
+  border: 2px solid var(--vinyl);
+  padding: 0.45rem 0.6rem;
+  font-size: 0.92rem;
+  transform: rotate(-1deg);
+}
+.hours-sticker table { border-collapse: collapse; }
+.hours-sticker td { padding: 0.08rem 0.7rem 0.08rem 0; }
+.hours-sticker td:last-child { font-weight: 600; }
+
+.magnet {
+  margin-top: 1rem;
+  background: #fff;
+  border: 3px solid var(--vinyl);
+  padding: 0.8rem;
+  box-shadow: 4px 4px 0 var(--vinyl);
+}
+.magnet h2 {
+  font-family: "Barlow Condensed", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+.magnet form { display: grid; gap: 0.35rem; }
+.magnet label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.magnet input, .magnet textarea {
+  border: 0; border-bottom: 1px solid #121417; background: transparent; padding: 0.3rem 0; font: inherit;
+}
+.magnet textarea { min-height: 3.6rem; }
+.magnet button {
+  background: var(--cell); color: #fff; border: 0; padding: 0.6rem 0.7rem;
+  font-family: "Barlow Condensed", sans-serif; font-size: 1.1rem; letter-spacing: 0.06em;
+  text-transform: uppercase; cursor: pointer; font-weight: 700;
+}
+.magnet .hint { font-size: 0.82rem; color: #3a4048; margin: 0; }
+.foot {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+  margin-top: 0.9rem; font-size: 0.85rem; color: #3a4048;
+}
+a.plain { color: inherit; }
+@media (max-width: 640px) {
+  .van { margin: 0.6rem; border-width: 8px; }
+}
+@media print {
+  .top, .magnet button, .lang { display: none !important; }
+  body { background: #fff; }
+  .van { box-shadow: none; }
+}
