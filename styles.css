@@ -213,6 +213,21 @@ a { color: inherit; }
 }
 .sub { text-align: center; font-size: clamp(0.52rem, 1.75cqh, 0.66rem); }
 .vinyl { text-align: center; font-size: clamp(0.52rem, 1.7cqh, 0.64rem); color: #2a3138; }
+.paint-box {
+  justify-self: center;
+  background: #111418;
+  color: #e8edf2;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: clamp(0.42rem, 1.45cqh, 0.56rem);
+  padding: 0.08rem 0.36rem;
+  margin: 0.04rem auto 0;
+  width: fit-content;
+  max-width: 92%;
+  box-shadow: 0 2px 0 #0006;
+}
 
 .plate { text-align: center; margin: 0; }
 .plate small {
