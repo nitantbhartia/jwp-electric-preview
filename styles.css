@@ -1,7 +1,13 @@
-/* JWP Electric — the page is the cargo van door. 5×7 mailed plate. */
+/* JWP Electric — the viewport is the cargo van door. */
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;600&display=swap");
 
-:root { --vinyl: #111418; --cell: #b01a1a; --stripe: #e0b40a; --paint: #e8edf2; }
+:root {
+  --vinyl: #111418;
+  --cell: #b01a1a;
+  --stripe: #e0b40a;
+  --paint: #e8edf2;
+}
+
 * { box-sizing: border-box; }
 html, body { margin: 0; }
 body {
@@ -12,150 +18,339 @@ body {
     radial-gradient(ellipse at 50% 100%, #2a2e34 0 20%, transparent 55%),
     repeating-linear-gradient(90deg, #14171c 0 36px, #101318 36px 38px);
 }
-.lot { min-height: 100vh; display: grid; place-items: center; padding: 0.55rem 0.45rem 0.7rem; }
+
+.lot {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 0.45rem 0.4rem 0.65rem;
+}
+
 .door {
   position: relative;
   container-type: inline-size;
-  width: min(560px, 92vw, calc(94vh * 5 / 7));
+  width: min(640px, 96vw, calc(94vh * 5 / 7));
   aspect-ratio: 5 / 7;
-  padding: 0.45rem 0.85rem 0.2rem 1.55rem;
+  padding: 0.35rem 0.85rem 0.2rem 1.55rem;
   overflow: hidden;
-  display: grid;
-  grid-template-rows: auto 1.15fr auto auto auto auto auto auto auto auto;
   background:
     linear-gradient(90deg, #0003 0 18px, transparent 42px),
     linear-gradient(180deg, #f7f8fa 0%, var(--paint) 12%, #d5dce4 78%, #b8c0ca 100%);
   border-left: 14px solid #1a1e24;
   border-right: 8px solid #1a1e24;
-  box-shadow: inset 0 0 0 5px #8e97a2, inset 18px 0 24px #0002, 0 0 0 4px #050608, 0 18px 36px #0008;
-  font-size: clamp(8px, 2.15cqw, 15px);
+  box-shadow:
+    inset 0 0 0 5px #8e97a2,
+    inset 18px 0 24px #0002,
+    0 0 0 4px #050608,
+    0 18px 36px #0008;
+  display: grid;
+  grid-template-rows: auto auto auto auto auto auto auto auto auto auto 1fr auto auto;
+  font-size: clamp(8px, 2.1cqw, 15px);
 }
+
 .door::before {
   content: "";
   position: absolute;
-  inset: 10px auto 42px 16px;
+  inset: 10px auto 46px 16px;
   width: 3px;
   background: linear-gradient(#9aa3ad, #6a727c);
   border-radius: 2px;
 }
+
 .gasket {
-  position: absolute; inset: 5px 5px 32px 5px;
-  border: 6px solid #1c2128; border-radius: 2px; pointer-events: none;
+  position: absolute;
+  inset: 5px 5px 34px 5px;
+  border: 6px solid #1c2128;
+  border-radius: 2px;
+  pointer-events: none;
   box-shadow: inset 0 0 0 2px #6d758055;
 }
-.hinges { position: absolute; left: -7px; top: 10%; height: 72%; display: flex; flex-direction: column; justify-content: space-between; }
+
+.hinges {
+  position: absolute;
+  left: -7px; top: 10%;
+  height: 72%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .hinges i {
-  display: block; width: 20px; height: 32px;
+  display: block;
+  width: 22px; height: 34px;
   background: linear-gradient(90deg, #8d959e, #d5dbe2 40%, #6a727c);
-  border-radius: 2px; box-shadow: 1px 2px 0 #0008;
+  border-radius: 2px;
+  box-shadow: 1px 2px 0 #0008;
 }
+
 .handle {
-  position: absolute; right: 16px; top: 18%; width: 42px; height: 14px;
-  background: linear-gradient(#c5ccd4, #7a828c); border-radius: 9px; box-shadow: 0 2px 0 #0005; z-index: 2;
+  position: absolute;
+  right: 18px;
+  top: 118px;
+  width: 48px;
+  height: 16px;
+  background: linear-gradient(#c5ccd4, #7a828c);
+  border-radius: 9px;
+  box-shadow: 0 2px 0 #0005;
+  z-index: 2;
 }
-.handle span { display: block; width: 8px; height: 8px; margin: 3px auto 0; background: #2a2e34; border-radius: 50%; }
-.door-top { display: flex; justify-content: flex-end; position: relative; z-index: 2; }
+.handle span {
+  display: block;
+  width: 9px; height: 9px;
+  margin: 3px auto 0;
+  background: #2a2e34;
+  border-radius: 50%;
+}
+
+.door-top {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 2;
+}
 .lang button {
   background: #111418cc; color: #d5dbe2; border: 1px solid #d5dbe255;
-  padding: 0.08rem 0.32rem; cursor: pointer; font-family: "Barlow Condensed", sans-serif;
+  padding: 0.06rem 0.32rem; cursor: pointer; font-family: "Barlow Condensed", sans-serif;
   letter-spacing: 0.08em; font-size: 0.85em;
 }
 .lang button[aria-pressed="true"] { background: var(--stripe); color: #111418; border-color: var(--stripe); }
 
 .window {
-  min-height: 0;
   margin: 0.08rem 0.08rem 0.28rem;
-  background: linear-gradient(155deg, #cfe4f4 0%, #7aa0bc 42%, #3d5e76 100%);
+  background:
+    linear-gradient(155deg, #cfe4f4 0%, #7aa0bc 42%, #3d5e76 100%);
   border: 7px solid #22262c;
   box-shadow: inset 0 0 0 3px #8eb0c4, inset -40px -28px 0 #ffffff18, 0 2px 0 #0004;
   display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  grid-template-rows: auto 1fr;
-  gap: 0.18rem 0.28rem;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 0.22rem 0.35rem;
   padding: 0.22rem 0.32rem 0.28rem;
-  position: relative; z-index: 1; overflow: hidden;
+  position: relative;
+  z-index: 1;
+  align-items: start;
 }
 .origin {
   grid-column: 1 / -1;
-  font-family: "Barlow Condensed", sans-serif; font-weight: 700;
-  letter-spacing: 0.08em; text-transform: uppercase; color: #0e2432;
-  font-size: 0.82em; text-shadow: 0 1px 0 #fff6;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0e2432;
+  font-size: 0.78em;
+  text-shadow: 0 1px 0 #fff6;
 }
 .hours-sticker {
-  background: #fffdf4; color: #111; padding: 0.14rem 0.28rem;
-  font-size: 0.62em; line-height: 1.18; box-shadow: 1px 2px 0 #0004;
-  transform: rotate(-1.4deg); align-self: start;
+  background: #fffdf4;
+  color: #111;
+  padding: 0.12rem 0.28rem;
+  font-size: 0.58em;
+  line-height: 1.15;
+  box-shadow: 1px 2px 0 #0004;
+  transform: rotate(-1.1deg);
+  align-self: start;
 }
 .hours-sticker strong { display: block; font-family: "Barlow Condensed", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }
 .hours-sticker p { margin: 0; }
 
-.permit {
-  background: #fffef8; color: var(--vinyl); padding: 0.12rem 0.28rem 0.16rem;
-  box-shadow: 1px 2px 0 #0005; transform: rotate(1.1deg);
+.sms-sticker {
+  background: #fffdf4;
+  color: #111;
+  padding: 0.12rem 0.28rem 0.16rem;
+  box-shadow: 1px 2px 0 #0004;
+  transform: rotate(1.4deg);
   font-family: "Barlow Condensed", sans-serif;
-  display: grid; grid-template-columns: auto 1fr; gap: 0.04rem 0.22rem;
-  align-items: center; font-size: 0.72em;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.04rem 0.22rem;
+  align-items: center;
 }
 .stencil-head {
-  grid-column: 1 / -1; margin: 0; letter-spacing: 0.1em; text-transform: uppercase;
-  font-weight: 800; font-size: 0.92em; text-align: left;
+  grid-column: 1 / -1;
+  margin: 0;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 0.62em;
 }
-.permit label { letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.72em; margin: 0; }
-.permit input {
-  width: 100%; background: transparent; border: 0; border-bottom: 1.5px solid var(--vinyl);
-  padding: 0.02rem 0; font-family: "Barlow", sans-serif; font-size: 0.92em; color: var(--vinyl); min-width: 0;
+.sms-sticker label {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.52em;
+  margin: 0;
+  white-space: nowrap;
 }
-.permit #job-err, .permit button, .permit .hint { grid-column: 1 / -1; }
-.permit button {
-  margin-top: 0.12rem; background: var(--cell); color: #fff; border: 0;
-  padding: 0.18rem 0.28rem; cursor: pointer; font-family: "Barlow Condensed", sans-serif;
-  font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
-  box-shadow: 0 2px 0 #6e1010; font-size: 0.88em;
+.sms-sticker input {
+  width: 100%;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #111;
+  padding: 0.02rem 0;
+  font-family: "Barlow", sans-serif;
+  font-size: 0.62em;
+  color: #111;
 }
-.hint { font-family: "Barlow", sans-serif; font-size: 0.62em; margin: 0; color: #1a2430; line-height: 1.15; }
+.sms-sticker #job-err { grid-column: 1 / -1; margin: 0; font-size: 0.5em; font-family: "Barlow", sans-serif; }
+.sms-sticker button {
+  grid-column: 1 / -1;
+  margin-top: 0.08rem;
+  background: var(--cell);
+  color: #fff;
+  border: 0;
+  padding: 0.16rem 0.28rem;
+  cursor: pointer;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.62em;
+  box-shadow: 0 2px 0 #6e1010;
+}
 
-.lettering { margin: 0.05rem 0 0; text-align: center; }
+.lettering { margin: 0.04rem 0 0; text-align: center; }
 .lettering .co {
-  display: block; font-family: "Barlow Condensed", sans-serif; font-weight: 800;
-  font-size: 2.15em; letter-spacing: 0.06em; text-transform: uppercase; line-height: 0.88; color: var(--vinyl);
+  display: block;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 9cqw, 3.1rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 0.88;
+  color: var(--vinyl);
 }
 .lettering .tag {
-  display: block; font-family: "Barlow Condensed", sans-serif; font-weight: 700;
-  letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.78em; color: var(--cell); margin-top: 0.08rem;
+  display: block;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: clamp(0.62rem, 2.8cqw, 1rem);
+  color: var(--cell);
+  margin-top: 0.08rem;
 }
-.sub { text-align: center; margin: 0.08rem 0; font-size: 0.72em; }
+.sub {
+  text-align: center;
+  margin: 0.06rem 0 0.08rem;
+  font-size: 0.72em;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 .vinyl-copy {
-  margin: 0 auto 0.08rem; max-width: 42em; text-align: center; font-size: 0.68em; color: #2a3138;
-  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  margin: 0 auto 0.12rem;
+  max-width: 38em;
+  text-align: center;
+  font-size: 0.62em;
+  color: #2a3138;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
+
 .plate { text-align: center; margin: 0; }
-.plate small { display: block; font-family: "Barlow Condensed", sans-serif; letter-spacing: 0.16em; text-transform: uppercase; font-size: 0.68em; }
+.plate small {
+  display: block;
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.62em;
+}
 .plate .num {
-  font-family: "Barlow Condensed", sans-serif; font-weight: 800; font-size: 3.6em;
-  letter-spacing: 0.02em; line-height: 0.8; color: var(--vinyl);
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: clamp(3.2rem, 18cqw, 6.4rem);
+  letter-spacing: 0.02em;
+  line-height: 0.8;
+  color: var(--vinyl);
   text-shadow: 0 2px 0 #fff, 0 3px 0 #8a929c;
 }
+
 .cell {
-  display: block; text-align: center; font-family: "Barlow Condensed", sans-serif; font-weight: 800;
-  font-size: 1.45em; letter-spacing: 0.08em; color: #fff; background: var(--cell); text-decoration: none;
-  padding: 0.06rem 0.32rem; margin: 0.08rem auto 0; width: fit-content; min-width: 52%; box-shadow: 0 3px 0 #6e1010;
+  display: block;
+  text-align: center;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.2rem, 6cqw, 2.1rem);
+  letter-spacing: 0.08em;
+  color: #fff;
+  background: var(--cell);
+  text-decoration: none;
+  padding: 0.06rem 0.32rem;
+  margin: 0.08rem auto 0;
+  width: fit-content;
+  min-width: 54%;
+  box-shadow: 0 3px 0 #6e1010;
 }
-.cell-label { text-align: center; font-family: "Barlow Condensed", sans-serif; letter-spacing: 0.22em; text-transform: uppercase; font-size: 0.62em; margin: 0.06rem 0 0; }
-.email-decal { display: block; text-align: center; color: inherit; font-size: 0.72em; margin: 0 0 0.18rem; }
+.cell-label {
+  text-align: center;
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.62em;
+  margin: 0.06rem 0 0;
+}
+.email-decal {
+  display: block;
+  text-align: center;
+  color: inherit;
+  font-size: 0.72em;
+  margin: 0 0 0.18rem;
+}
+
 .stripe {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.12rem 0.28rem;
-  background: var(--stripe); color: #111; padding: 0.16rem 0.28rem; margin: 0 -0.3rem 0.12rem;
-  font-family: "Barlow Condensed", sans-serif; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.72em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.12rem 0.28rem;
+  background: var(--stripe);
+  color: #111;
+  padding: 0.18rem 0.28rem;
+  margin: 0 -0.3rem 0.12rem;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.68em;
 }
-.bumper { height: 12px; margin: 0.08rem -0.85rem 0.08rem -1.55rem; background: repeating-linear-gradient(90deg, var(--stripe) 0 16px, #111418 16px 32px); }
-.foot { display: flex; justify-content: space-between; gap: 0.4rem; flex-wrap: wrap; font-size: 0.58em; padding: 0.04rem 0 0.08rem; }
+
+.door-hint {
+  text-align: center;
+  font-size: 0.58em;
+  margin: 0 0 0.08rem;
+  color: #333;
+}
+
+.bumper {
+  height: 14px;
+  margin: 0.12rem -0.85rem 0.08rem -1.55rem;
+  background: repeating-linear-gradient(90deg, var(--stripe) 0 16px, #111418 16px 32px);
+  align-self: end;
+}
+.foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  font-size: 0.58em;
+  padding: 0.06rem 0 0.08rem;
+}
 .plain { color: inherit; }
+
 .top {
-  display: flex; justify-content: space-between; align-items: center; padding: 0.35rem 0.7rem;
-  background: #08090b; color: #d5dbe2; font-family: "Barlow Condensed", sans-serif;
-  letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.82rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  background: #08090b;
+  color: #d5dbe2;
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
 }
-@media (max-width: 560px) {
-  .door { padding-left: 1.2rem; }
-  .permit .hint { display: none; }
+
+@media (max-width: 520px) {
+  .door { padding-left: 1.2rem; border-left-width: 10px; }
+  .window { grid-template-columns: 1fr 1.15fr; }
 }
