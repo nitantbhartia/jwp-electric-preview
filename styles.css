@@ -1,11 +1,11 @@
-/* JWP Electric — cargo van door is the page. Vinyl, window, rivets, magnet. */
+/* JWP Electric — the page is the cargo van door. */
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;600&display=swap");
 
 :root {
   --vinyl: #111418;
   --cell: #b01a1a;
   --stripe: #e0b40a;
-  --paint: #eef1f4;
+  --paint: #e8edf2;
 }
 
 * { box-sizing: border-box; }
@@ -14,8 +14,307 @@ body {
   min-height: 100vh;
   color: var(--vinyl);
   font-family: "Barlow", "Arial Narrow", sans-serif;
-  background: #0c0e11;
+  background:
+    radial-gradient(ellipse at 50% 100%, #2a2e34 0 20%, transparent 55%),
+    repeating-linear-gradient(90deg, #14171c 0 36px, #101318 36px 38px);
 }
+
+.lot {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 0.8rem 0.55rem 1.1rem;
+}
+
+.door {
+  position: relative;
+  width: min(720px, 100%);
+  min-height: calc(100vh - 1.6rem);
+  padding: 0.7rem 1.15rem 0.35rem 2rem;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, #0003 0 18px, transparent 42px),
+    linear-gradient(180deg, #f7f8fa 0%, var(--paint) 12%, #d5dce4 78%, #b8c0ca 100%);
+  border-left: 16px solid #1a1e24;
+  border-right: 10px solid #1a1e24;
+  box-shadow:
+    inset 0 0 0 5px #8e97a2,
+    inset 18px 0 24px #0002,
+    0 0 0 4px #050608,
+    0 22px 40px #0008;
+}
+
+.door::before {
+  content: "";
+  position: absolute;
+  inset: 12px auto 52px 20px;
+  width: 3px;
+  background: linear-gradient(#9aa3ad, #6a727c);
+  border-radius: 2px;
+}
+
+.gasket {
+  position: absolute;
+  inset: 6px 6px 40px 6px;
+  border: 7px solid #1c2128;
+  border-radius: 2px;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 2px #6d758055;
+}
+
+.hinges {
+  position: absolute;
+  left: -8px; top: 10%;
+  height: 72%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.hinges i {
+  display: block;
+  width: 24px; height: 40px;
+  background: linear-gradient(90deg, #8d959e, #d5dbe2 40%, #6a727c);
+  border-radius: 2px;
+  box-shadow: 1px 2px 0 #0008;
+}
+
+.handle {
+  position: absolute;
+  right: 22px;
+  top: 132px;
+  width: 54px;
+  height: 18px;
+  background: linear-gradient(#c5ccd4, #7a828c);
+  border-radius: 9px;
+  box-shadow: 0 2px 0 #0005;
+  z-index: 2;
+}
+.handle span {
+  display: block;
+  width: 10px; height: 10px;
+  margin: 4px auto 0;
+  background: #2a2e34;
+  border-radius: 50%;
+}
+
+.door-top {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 2;
+}
+.lang button {
+  background: #111418cc; color: #d5dbe2; border: 1px solid #d5dbe255;
+  padding: 0.12rem 0.4rem; cursor: pointer; font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: 0.08em;
+}
+.lang button[aria-pressed="true"] { background: var(--stripe); color: #111418; border-color: var(--stripe); }
+
+.window {
+  height: 88px;
+  margin: 0.15rem 0.1rem 0.55rem;
+  background:
+    linear-gradient(155deg, #cfe4f4 0%, #7aa0bc 42%, #3d5e76 100%);
+  border: 8px solid #22262c;
+  box-shadow: inset 0 0 0 3px #8eb0c4, inset -40px -28px 0 #ffffff18, 0 2px 0 #0004;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0.3rem 0.45rem;
+  position: relative;
+  z-index: 1;
+}
+.origin {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0e2432;
+  font-size: 0.92rem;
+  text-shadow: 0 1px 0 #fff6;
+}
+.hours-sticker {
+  background: #fffdf4;
+  color: #111;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.68rem;
+  line-height: 1.2;
+  box-shadow: 1px 2px 0 #0004;
+  transform: rotate(1.2deg);
+}
+.hours-sticker strong { display: block; font-family: "Barlow Condensed", sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }
+.hours-sticker p { margin: 0; }
+
+.lettering { margin: 0.1rem 0 0.1rem; text-align: center; }
+.lettering .co {
+  display: block;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: clamp(2.1rem, 8vw, 3.4rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 0.9;
+  color: var(--vinyl);
+}
+.lettering .tag {
+  display: block;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: clamp(0.85rem, 2.4vw, 1.15rem);
+  color: var(--cell);
+  margin-top: 0.15rem;
+}
+.sub {
+  text-align: center;
+  margin: 0.15rem 0 0.25rem;
+  font-size: 0.92rem;
+}
+.vinyl-copy {
+  margin: 0 auto 0.35rem;
+  max-width: 36em;
+  text-align: center;
+  font-size: 0.86rem;
+  color: #2a3138;
+}
+
+.plate {
+  text-align: center;
+  margin: 0.1rem 0 0.15rem;
+}
+.plate small {
+  display: block;
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+.plate .num {
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: clamp(4.2rem, 16vw, 7.2rem);
+  letter-spacing: 0.02em;
+  line-height: 0.82;
+  color: var(--vinyl);
+  text-shadow: 0 2px 0 #fff, 0 3px 0 #8a929c;
+}
+
+.cell {
+  display: block;
+  text-align: center;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 5.5vw, 2.4rem);
+  letter-spacing: 0.08em;
+  color: #fff;
+  background: var(--cell);
+  text-decoration: none;
+  padding: 0.12rem 0.4rem;
+  margin: 0.15rem auto 0;
+  width: fit-content;
+  min-width: 58%;
+  box-shadow: 0 3px 0 #6e1010;
+}
+.cell-label {
+  text-align: center;
+  font-family: "Barlow Condensed", sans-serif;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  margin: 0.15rem 0 0.1rem;
+}
+.email-decal {
+  display: block;
+  text-align: center;
+  color: inherit;
+  font-size: 0.92rem;
+  margin: 0 0 0.45rem;
+}
+
+.stripe {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 0.35rem;
+  background: var(--stripe);
+  color: #111;
+  padding: 0.32rem 0.4rem;
+  margin: 0 -0.4rem 0.55rem;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.86rem;
+}
+
+.stencil {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  color: var(--vinyl);
+  padding: 0.15rem 0.2rem 0.3rem;
+  max-width: 420px;
+  margin: 0 auto;
+  font-family: "Barlow Condensed", sans-serif;
+}
+.stencil-head {
+  margin: 0 0 0.25rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 0.92rem;
+  text-align: center;
+}
+.stencil label {
+  display: block;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  margin: 0.18rem 0 0;
+}
+.stencil input, .stencil textarea {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid var(--vinyl);
+  padding: 0.18rem 0 0.1rem;
+  font-family: "Barlow", sans-serif;
+  font-size: 0.95rem;
+  color: var(--vinyl);
+}
+.stencil textarea { min-height: 2.1rem; resize: vertical; border-bottom-width: 2px; }
+.stencil button {
+  width: 100%;
+  margin-top: 0.4rem;
+  background: var(--cell);
+  color: #fff;
+  border: 0;
+  padding: 0.48rem 0.5rem;
+  cursor: pointer;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: 0 3px 0 #6e1010;
+}
+.hint { font-family: "Barlow", sans-serif; font-size: 0.78rem; margin: 0.25rem 0 0; color: #333; }
+
+.bumper {
+  height: 18px;
+  margin: 0.45rem -1.15rem 0.2rem -2rem;
+  background:
+    repeating-linear-gradient(90deg, var(--stripe) 0 18px, #111418 18px 36px);
+}
+.foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.72rem;
+  padding: 0.15rem 0 0.2rem;
+}
+.plain { color: inherit; }
 
 .top {
   display: flex;
@@ -29,284 +328,9 @@ body {
   text-transform: uppercase;
   font-size: 0.82rem;
 }
-.lang button {
-  background: transparent; color: #d5dbe2; border: 1px solid #d5dbe255;
-  padding: 0.12rem 0.4rem; cursor: pointer; font-family: inherit;
-}
-.lang button[aria-pressed="true"] { background: var(--stripe); color: #111418; border-color: var(--stripe); }
 
-.door {
-  max-width: 720px;
-  min-height: calc(100vh - 38px);
-  margin: 0 auto;
-  padding: 1.1rem 1.35rem 0.4rem 2.1rem;
-  position: relative;
-  overflow: hidden;
-  background:
-    linear-gradient(90deg, #c5ccd4 0 14px, transparent 14px),
-    linear-gradient(180deg, #f7f8fa 0%, var(--paint) 10%, #d8dee6 78%, #c2c9d2 100%);
-  border-left: 18px solid #1a1e24;
-  border-right: 10px solid #1a1e24;
-  box-shadow:
-    inset 0 0 0 5px #8e97a2,
-    inset 18px 0 24px #0002,
-    0 0 0 3px #050608;
-}
-.door::before {
-  content: "";
-  position: absolute;
-  inset: 10px auto 48px 22px;
-  width: 3px;
-  background: linear-gradient(#9aa3ad, #6a727c);
-  border-radius: 2px;
-}
-.gasket {
-  position: absolute;
-  inset: 6px 6px 42px 6px;
-  border: 7px solid #1c2128;
-  border-radius: 2px;
-  pointer-events: none;
-  box-shadow: inset 0 0 0 2px #6d758055;
-}
-.hinges {
-  position: absolute;
-  left: -6px; top: 12%;
-  height: 70%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.hinges i {
-  display: block;
-  width: 22px; height: 38px;
-  background: linear-gradient(90deg, #8d959e, #d5dbe2 40%, #6a727c);
-  border-radius: 2px;
-  box-shadow: 1px 2px 0 #0008;
-}
-
-.window {
-  height: 92px;
-  margin: 0.2rem 0.15rem 0.65rem;
-  background:
-    linear-gradient(155deg, #cfe4f4 0%, #7aa0bc 42%, #3d5e76 100%);
-  border: 8px solid #22262c;
-  box-shadow:
-    inset 0 0 0 3px #8eb0c4,
-    inset -40px -28px 0 #ffffff18,
-    0 2px 0 #0004;
-  display: flex;
-  align-items: flex-end;
-  padding: 0.4rem 0.5rem;
-}
-.window .origin {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-size: 0.86rem;
-  color: #101820;
-  background: #f2c430;
-  padding: 0.12rem 0.42rem;
-}
-
-.handle {
-  width: 92px; height: 22px;
-  margin: 0 0.2rem 0.7rem auto;
-  background: linear-gradient(#c5ccd4, #5c646e);
-  border-radius: 3px;
-  box-shadow: inset 0 1px 0 #fff8, 0 3px 0 #14181d;
-  position: relative;
-}
-.handle span {
-  position: absolute;
-  left: 10px; top: 6px; bottom: 6px; width: 28px;
-  background: #2a3036;
-  border-radius: 2px;
-}
-
-.lettering {
-  font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  line-height: 0.86;
-  margin: 0;
-}
-.lettering .co { font-size: clamp(2.8rem, 12vw, 5.8rem); display: block; }
-.lettering .tag {
-  display: block;
-  font-size: clamp(1.05rem, 3.5vw, 1.8rem);
-  font-weight: 700;
-  color: #3a424c;
-  margin-top: 0.28rem;
-}
-.sub { margin: 0.3rem 0 0.55rem; font-size: 0.98rem; max-width: 42ch; }
-
-.license {
-  margin: 0.35rem 0 0.1rem;
-  border: 6px solid var(--vinyl);
-  background: #fff;
-  padding: 0.25rem 0.45rem 0.4rem;
-  text-align: center;
-  box-shadow: 0 5px 0 #111418;
-}
-.license small {
-  display: block;
-  font-family: "Barlow Condensed", sans-serif;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-  color: #3a424c;
-}
-.license .num {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 800;
-  font-size: clamp(4.2rem, 19vw, 8.8rem);
-  line-height: 0.8;
-  letter-spacing: 0.01em;
-}
-.license .bond {
-  font-size: 0.82rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #3a424c;
-}
-
-.cell {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 800;
-  font-size: clamp(2.4rem, 10vw, 4.8rem);
-  line-height: 0.88;
-  color: var(--cell);
-  text-decoration: none;
-  display: inline-block;
-  margin: 0.45rem 0 0;
-  letter-spacing: 0.03em;
-  text-shadow: 0 1px 0 #fff8;
-}
-.cell-label {
-  font-family: "Barlow Condensed", sans-serif;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  font-size: 0.78rem;
-  margin: 0.1rem 0 0.7rem;
-  color: #3a424c;
-}
-
-.stripe {
-  background: repeating-linear-gradient(135deg, var(--stripe) 0 14px, #111418 14px 20px);
-  color: var(--vinyl);
-  padding: 0.55rem 0.65rem;
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 1.05rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.25rem 0.95rem;
-  margin: 0 -0.4rem;
-}
-.stripe span {
-  background: var(--stripe);
-  color: var(--vinyl);
-  padding: 0.05rem 0.2rem;
-  white-space: nowrap;
-}
-
-.decals {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.7rem 1.1rem;
-  margin: 0.9rem 0 0.35rem;
-}
-.hours-sticker {
-  background: #fffef6;
-  border: 2px solid var(--vinyl);
-  padding: 0.4rem 0.55rem;
-  font-size: 0.88rem;
-  transform: rotate(-1.4deg);
-  box-shadow: 3px 4px 0 #11141866;
-}
-.hours-sticker table { border-collapse: collapse; }
-.hours-sticker td { padding: 0.05rem 0.65rem 0.05rem 0; }
-.hours-sticker td:last-child { font-weight: 600; }
-.email-decal {
-  font-family: "Barlow Condensed", sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--vinyl);
-  text-decoration: none;
-  border-bottom: 4px solid var(--stripe);
-  padding-bottom: 0.08rem;
-}
-
-.magnet {
-  margin: 0.85rem 0 0.5rem;
-  background: #f4f1e6;
-  border: 2px solid #2a2e34;
-  padding: 1.05rem 0.8rem 0.8rem;
-  position: relative;
-  box-shadow: 6px 8px 0 #11141855;
-}
-.clip {
-  position: absolute;
-  top: -14px; left: 50%;
-  width: 54px; height: 22px;
-  margin-left: -27px;
-  background: linear-gradient(#d7dde4, #6d7580);
-  border-radius: 3px 3px 2px 2px;
-  box-shadow: 0 2px 0 #111418;
-}
-.magnet h2 {
-  font-family: "Barlow Condensed", sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 0 0 0.4rem;
-  font-size: 1.15rem;
-}
-.magnet form { display: grid; gap: 0.22rem; }
-.magnet label {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-family: "Barlow Condensed", sans-serif;
-}
-.magnet input, .magnet textarea {
-  border: 1px solid #c5c1b4;
-  background: #fff;
-  padding: 0.28rem 0.35rem;
-  font: inherit;
-  border-radius: 0;
-}
-.magnet textarea { min-height: 3.2rem; }
-.magnet button {
-  background: var(--cell); color: #fff; border: 0; padding: 0.55rem 0.65rem;
-  font-family: "Barlow Condensed", sans-serif; font-size: 1.08rem; letter-spacing: 0.08em;
-  text-transform: uppercase; cursor: pointer; font-weight: 700;
-}
-.magnet .hint { font-size: 0.78rem; color: #3a424c; margin: 0; }
-
-.bumper {
-  height: 28px;
-  margin: 0.7rem -1.35rem 0 -2.1rem;
-  background:
-    repeating-linear-gradient(90deg, var(--stripe) 0 18px, #111418 18px 36px);
-  border-top: 4px solid #1a1e24;
-}
-.foot {
-  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.4rem;
-  margin: 0.45rem 0 0.3rem; font-size: 0.78rem; color: #3a424c;
-}
-a.plain { color: inherit; }
-
-@media (max-width: 640px) {
-  .door { padding-left: 1.4rem; border-left-width: 12px; }
-}
-@media print {
-  .top, .magnet button, .lang { display: none !important; }
-  body { background: #fff; }
-  .door { box-shadow: none; }
+@media (max-width: 560px) {
+  .door { padding-left: 1.4rem; }
+  .plate .num { font-size: 3.6rem; }
+  .window { height: auto; flex-direction: column; align-items: flex-start; gap: 0.3rem; }
 }
